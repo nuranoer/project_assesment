@@ -24,4 +24,7 @@ export class Purchase {
 
     @ManyToOne(() => Purchase, (purchase) => purchase.barang)
     purchase: Purchase;
+
+    @Column()
+    created_at: string;
 }
