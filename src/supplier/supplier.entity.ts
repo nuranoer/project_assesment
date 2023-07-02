@@ -1,12 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Barang } from '../product/product.entity';
 
 @Entity()
 export class Supplier {
   @PrimaryGeneratedColumn()
-  id: number;
+  id_supplier: number;
+
+  @Column({ type: 'date' })
+  tanggal: Date;
+
+  @ManyToOne(() => Barang)
+  barang: Barang;
 
   @Column()
-  name: string;
-
-  // ... other columns
+  stok: number;
 }
